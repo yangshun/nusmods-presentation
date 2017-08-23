@@ -1,234 +1,100 @@
 <!doctype html>
 <html lang="en">
 
-	<head>
-		<meta charset="utf-8">
+  <head>
+    <meta charset="utf-8">
 
-		<title>NUSMods v3.0 - The Next Gen</title>
+    <title>NUSMods</title>
 
-		<meta name="description" content="Slides for a NUSHackers talk about NUSMods">
-		<meta name="author" content="Li Kai">
+    <meta name="description" content="Slides for a NUSHackers talk about NUSMods">
     <meta name="author" content="Yang Shun">
 
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black.css" id="theme">
 
-		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
 
-		<!-- Printing and PDF exports -->
-		<script>
-			var link = document.createElement( 'link' );
-			link.rel = 'stylesheet';
-			link.type = 'text/css';
-			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-			document.getElementsByTagName( 'head' )[0].appendChild( link );
-		</script>
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
 
-		<!--[if lt IE 9]>
-		<script src="lib/js/html5shiv.js"></script>
-		<![endif]-->
-	</head>
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
 
-	<body>
+  <body>
 
-		<div class="reveal">
-			<div class="slides">
-				<section>
-					<h1>NUSMods 3.0</h1>
-					<h3>Living on the cutting edge</h3>
-					<p>
-						By <a href="http://www.github.com/li-kai">Li Kai</a> and <a href="https://github.com/yangshun" target="_blank">Yang Shun</a>
-					</p>
-				</section>
-
-				<section>
-				  <h2>Hi, I'm Li Kai</h2>
-				  <p>I built <a href="https://www.modify.sg/">Modify.sg</a></p>
-				  <iframe class="stretch" style="background: white" src="https://www.modify.sg/"></iframe>
-				</section>
-
+    <div class="reveal">
+      <div class="slides">
         <section>
-          <!-- Or do I introduce you? -->
-          <h2>And I'm Yang Shun</h2>
-          <p>I work at <a href="https://grab.careers/">Grab</a>, built <a href="https://nusmods.com/">NUSMods</a> and founded <a href="https://www.nuswhispers.com/">NUSWhispers</a>.</p>
-        </section>
-
-				<section>
-				  <h2>Outline</h2>
-				  <ul>
-					<li class="fragment">
-            Modify.sg
-          </li>
-          <li class="fragment">
-            NUSMods v3.0
-            <ul>
-              <li>New Application Architecture</li>
-              <li>Technical Challenges</li>
-              <li>Moving Forward</li>
-            </ul>
-          </li>
-				  </ul>
-				</section>
-
-        <section>
-          <h2>Motivation</h2>
+          <h1>NUSMods</h1>
+          <h3>A tale of three tables</h3>
           <p>
-            <div class="fragment">NUSMods doesn't work that well on phones.</div>
-            <div class="fragment">NTU has to use their proprietary planner.<img style="max-height: 70vh" src="./img/ntu_stars_planner.jpg"></div>
+            By <a href="https://github.com/yangshun" target="_blank">Yang Shun</a>
           </p>
-        </section>
-        <section>
-          <h2>It's time for</h2>
-          <h3>A little <a href="https://www.modify.sg/">demo</a></h3>
         </section>
 
         <section>
-          <p>Modify was built with <a href="https://vuejs.org/">VueJS</a></p>
-          <img style="background: none; border: 0" src="./img/vue-logo.png">
-        </section>
-        <section>
-          <h2>Why Vue?</h2>
-          <p>
-            <strong>Easy to learn</strong>
-            <pre><code data-trim>
-<div id="app-4">
-  <ol>
-    <li v-for="todo in todos">
-      {{ todo.text }}
-    </li>
-  </ol>
-</div>
-            </code></pre>
-          </p>
-        </section>
-        <section>
-          <p>Don't just take my word</p>
-          <img style="background: none; border: 0" src="./img/gitlab-vue.png">
-          <p><a href="https://about.gitlab.com/2016/10/20/why-we-chose-vue/">Gitlab says it's easy too</a></p>
-        </section>
-        <section>
-          <p>It is fast.</p>
-          <img src="./img/vue-performance.png">
-        </section>
-        <section>
-          <p>It's getting increasingly popular</p>
-          <figure>
-            <blockquote cite="http://stateofjs.com/2016/frontend/">
-            &ldquo;But if you look at percentages, it turns out the uncontested leader is instead React. What's more surprising is Vue's performance, coming second by both measures [Interest and Satisfaction].&rdquo;
-            </blockquote>
-            <figcaption style="float:right; margin-right:2em;">- StateOfJS</figcaption>
-          </figure>
-        </section>
-        <section>
-          <h3>Just for Fun: Parsing NTU</h3>
-          <p>Crawling with Scrapy
-            <small style="transform: rotate(15deg) translateY(1em); font-size: 0.5em;">
-              I thought this was a Javascript talk?
-            </small>
-          </p>
-        </section>
-        <section>
-          <p>
-            NTU load their data in an iframe.
-          </p>
-          <img class="stretch" src="./img/ntu_info.png">
-        </section>
-        <section>
-          <h4>Steps:</h4>
-          <ol>
-            <li>Get the iframe url</li>
-            <li class="fragment">
-              <div>Url has a subject code search parameter </div>
-              <div style="color: yellow">"...&r_subj_code=<span style="color: aqua">CS</span>&boption=Search"</div>
-            </li>
-            <li class="fragment">
-              <div>How do we get all modules?</div>
-              <div class="fragment">Pass in nothing! <div style="color: lime">"...&r_subj_code=&boption=Search"</div></div>
-            </li>
-          </ol>
-        </section>
-        <section>
-          <h3>Modern HTML layout</h3>
-          <pre><code data-trim>
-<li class="nav-dropdown-container">
-  <a class="nav-link">Community</a>
-  <span class="arrow"></span>
-  <ul class="nav-dropdown">
-    <li>
-      <a href="https://github.com/vuejs/vue" class="nav-link" target="_blank">GitHub</a>
-    </li>
-  </ul>
-</li>
-          </code></pre>
-          <p>Easy to parse via selectors</p>
-        </section>
-        <section>
-          <h3>Layout using tables</h3>
-          <pre><code data-trim>
-<TABLE>
-<TR>
-  <TD WIDTH="100"><B><FONT SIZE=2 COLOR=#0000FF>AC2103</FONT></B></TD>
-  <TD WIDTH="400"><B><FONT SIZE=2 COLOR=#0000FF>RISK MANAGEMENT, CONTROL AND ETHICS</FONT></B></TD>
-  <TD WIDTH="100"><B><FONT SIZE=2 COLOR=#0000FF>  4.0</FONT></B></TD>
-  <TD WIDTH="100"><B><FONT SIZE=2 COLOR=#0000FF>ACC</FONT></B></TD>
-</TR>
-<TR>
-  <TD><B><FONT SIZE=2 COLOR=#FF00FF>Prerequisite:</FONT></B></TD>
-  <TD COLSPAN="2"><B><FONT  SIZE=2 COLOR=#FF00FF>AC2101(Corequisite) & AC2401(Corequisite) & AC3101</FONT></B></TD>
-</TR>
-<TR>
-  <TD><B><FONT SIZE=2 COLOR=BROWN>Mutually exclusive with: </FONT></B></TD>
-  <TD COLSPAN="2"><B><FONT SIZE=2 COLOR=BROWN>AA205, AC3104</FONT></B></TD>
-</TR>
-</TABLE>
-          </code></pre>
-          <p>No well defined layers</p>
-        </section>
-        <section>
-          <h3>Solution?</h3>
-            <p class="fragment">Select using <span style="color:orange">color</span> tags</p>
-            <p class="fragment">Select using <span>&</span>nbsp that was in between each module somehow</p>
-        </section>
-
-        <section>
-          <h1>A brief introduction to NUSMods</h1>
-        </section>
-
-        <section>
-          <h2>What does NUSMods stand for?</h2>
+          <h2>The Problem</h2>
           <ul>
-            <li class="fragment">NUS Modules?</li>
-            <li class="fragment">NUS Moderators?</li>
-            <li class="fragment">NUS Modifications?</li>
+            <li>Course planning every semester was a pain at the National University of Singapore</li>
+            <li>Students were asked to use <a href="https://webrb.nus.edu.sg/ctt/builder.aspx" target="_blank">this</a> to plan their timetable</li>
           </ul>
-          <p  class="fragment">Naming is one of the hardest things in Computer Science.</p>
         </section>
 
         <section>
-          <img src="img/cs-hardest-things.png"/>
-          <a href="https://twitter.com/codinghorror/status/506010907021828096">https://twitter.com/codinghorror/status/506010907021828096</a>
+          <h1>Scratch your<br>own itch</h1>
         </section>
 
         <section>
+          <h1>NUSMods was born</h1>
+        </section>
+
+        <!-- <section>
           <h2>Goals and Objectives</h2>
           <ul>
-            <li class="fragment">Enhance the quality of lives and school experience of NUS students through technology</li>
-            <li class="fragment">Provide a platform to encourage students to experiment and create original community-engaging work via <a href="https://github.com/nusmodifications/nusmods-api">NUSMods API</a>.</li>
+            <li>Enhance the quality of lives and school experience of NUS students through technology</li>
+            <li>Complete knowledge bank of NUS courses by providing useful course-related information such as search-friendly archived CORS bidding statistics and community-driven course reviews and discussions.</li>
+            <li>Provide a platform to encourage students to experiment and create original community-engaging work via <a href="https://github.com/nusmodifications/nusmods-api">NUSMods API</a>.</li>
+          </ul>
+        </section> -->
+
+        <section>
+          <h2>Architecture</h2>
+          <ul>
+            <li>Clear client/server separation</li>
+            <li>Web-based timetable builder (Static single page app)
+              <ul>
+                <li>User-friendly interface</li>
+                <li>Filtering and searching through class data</li>
+              </ul>
+            </li>
+            <li>API server
+              <ul>
+                <li>Static JSON files</li>
+                <li>Information scraped daily from <a href="https://myaces.nus.edu.sg/cors/jsp/report/ModuleDetailedInfo.jsp?acad_y=2017/2018&sem_c=1&mod_c=ST2334">publicly accessible course pages</a></li>
+            </li>
           </ul>
         </section>
 
         <section>
           <h2>Timeline</h2>
           <ul>
-            <li class="fragment">2012 - Official timetable not usable. Unofficial version was Windows only. Beng built a jQuery version.</li>
-            <li class="fragment">2014 - Rebuilt by Beng and Yang Shun using Backbone and Marionette. Many features were added.</li>
-            <li class="fragment">2016 - Yang Shun and Li Kai rebuilding in React and Redux. Many features will be killed off.</li>
+            <li class="fragment">2012 - Official timetable was not usable. Unofficial version was Windows only. We built a jQuery version.</li>
+            <li class="fragment">2014 - Rebuilt with SPA architecture - Backbone and Marionette. Many features were added.</li>
+            <li class="fragment">2017 - Rebuilding in React and Redux. Many features will be killed off.</li>
           </ul>
         </section>
 
@@ -237,40 +103,45 @@
         </section>
 
         <section>
-          <h2>Version 0.1 - <a href="corset/">CORSet</a></h2>
+          <h2><a href="corset/" target="_blank">NUSMods 0.1</a></h2>
           <iframe class="stretch" src="corset/" style="background-color:white"></iframe>
         </section>
 
         <section>
-          <h2>Version 1.0 - <a href="NUSMods-Offline">NUSMods Beta</a></h2>
+          <h2><a href="NUSMods-Offline" target="_blank">NUSMods 1.0</a></h2>
           <iframe class="stretch" src="NUSMods-Offline/"></iframe>
           <small>Refresh the page if it doesn't load</small>
         </section>
 
         <section>
-          <h2>NUSMods v3.0 collaboration</h2>
+          <h2><a href="https://nusmods.com" target="_blank">NUSMods 2.0</a></h2>
+          <iframe class="stretch" src="https://nusmods.com/"></iframe>
         </section>
 
         <section>
-          <h2>It started with a <a href="https://github.com/nusmodifications/nusmods/issues/294#issuecomment-240896761">Github issue</a></h2>
-          <img src="./img/github-issue.png"/>
+          <h1>NUSMods 3.0</h1>
         </section>
 
         <section>
           <h3>Key Considerations</h3>
           <ul>
-            <li class="fragment">Mobile first
+            <li>Mobile-first
               <ul>
-                <li>Increased mobile penetration</li>
+                <li>Screen size should not compromise on experience</li>
+                <li>Mobile penetration on the rise</li>
               </ul>
             </li>
-            <li class="fragment">Optimize for performance
+            <li>Optimize for performance
               <ul>
                 <li>Low end devices</li>
                 <li>Poor network connectivity</li>
               </ul>
             </li>
-            <li class="fragment">Maintainability</li>
+            <li>Maintainability
+              <ul>
+                <li>Future generation of developers</li>
+              </ul>
+            </li>
           </ul>
         </section>
 
@@ -289,6 +160,7 @@
               <ul>
                 <li>Well-tested</li>
                 <li>Component/plugin-based architecture and workflow</li>
+                <li>Clearly defined abstractions between layers in the app</li>
               </ul>
             </li>
           </ul>
@@ -310,27 +182,32 @@
             <tr>
               <td><small>Language</small></td>
               <td>ES5</td>
-              <td>ES6 / Babel <small>By Facebook</small></td>
+              <td>ES6 / Babel</td>
             </tr>
             <tr>
               <td><small>Package Manager</small></td>
               <td>NPM</td>
-              <td>Yarn <small>By Facebook</small></td>
+              <td>Yarn</td>
             </tr>
             <tr>
-              <td><small>JS Framework</small></td>
+              <td><small>App</small></td>
               <td>Backbone + Marionette</td>
-              <td>React + Redux <small>By Facebook</small></td>
+              <td>React + Redux</td>
             </tr>
             <tr>
-              <td><small>Type</small></td>
+              <td><small>Types</small></td>
               <td>N/A</td>
-              <td>Flow <small>By Facebook</small></td>
+              <td>Flow</td>
             </tr>
             <tr>
               <td><small>Tests</small></td>
               <td>N/A</td>
-              <td>Jest <small>By Facebook</small></td>
+              <td>Jest + Enzyme</td>
+            </tr>
+            <tr>
+              <td><small>Style</small></td>
+              <td>JSHint</td>
+              <td>ESLint + Airbnb Style Guide</td>
             </tr>
           </table>
         </section>
@@ -380,51 +257,10 @@
         </section>
 
         <section>
-          <h3>ADD_MODULE action</h3>
-          <pre><code data-trim>
-function addModule(moduleCode, lessons) {
-  return {
-    type: 'ADD_MODULE',
-    payload: {
-      moduleCode: moduleCode,
-      lessons: lessons
-    }
-  };
-}
-          </code></pre>
-        </section>
-
-        <section>
-          <h3>timetable reducer</h3>
-          <pre><code data-trim>
-function timetable(state, action) {
-  switch (action.type) {
-    case 'ADD_MODULE':
-      var newState = Object.assign({}, state);
-      newState.modules.push(action.payload.moduleCode);
-      newState.lessons.push(action.payload.lessons);
-      return newState;
-    default:
-      return state;
-  }
-}
-          </code></pre>
-          <p>Fire same action from different places.</p>
-        </section>
-
-        <section>
           <h3>Types - Flow</h3>
           <ul>
-            <li>Catches common bugs in JavaScript code before they even run</li>
-              <pre><code data-trim>
-// @flow
-function foo(x) {
-  return x * 10;
-}
-foo('Hello, world!');
-              </code></pre>
-            </li>
-            <li>Add gradually</li>
+            <li>Ease of adoption as compared to TypeScript</li>
+            <li>Jells well with the other Facebook tools</li>
           </ul>
         </section>
 
@@ -464,142 +300,117 @@ type Lesson = {
         <section>
           <h2>Key Considerations Revisited</h2>
         </section>
+
         <section>
           <h3>Mobile First</h3>
           <p>Develop for the phone first, using Chrome/Firefox's mobile debugger</p>
           <p>Use media queries intensively</p>
         </section>
+
         <section>
           <h1>Courage</h1>
-          <p class="fragment">Drag n Drop too unintuitive</p>
-          <p class="fragment">Clicking is easier, faster and less technically challenging</p>
-          <h3 class="fragment">Good bye DnD</h3>
+          <p>Drag n Drop too unintuitive</p>
+          <p>Clicking is easier, faster and less technically challenging</p>
+          <h3>Good bye DnD</h3>
         </section>
+
         <section>
           <h3>Theme Colors</h3>
-          <div style="float: left; background: #555; padding: 0.5em;">
-            <h4>Modify.sg</h4>
-            <ul>
-              <li>Picked from Material Design palette</li>
-              <li>Accessibility testing</li>
-            </ul>
-          </div>
-          <div style="float: right; background: #333; padding: 0.5em;">
-            <h4>V3</h4>
-            <ul>
-              <li>Killing of unpopular colors</li>
-              <li>The feature everyone wanted: Color pickers</li>
-            </ul>
-          </div>
+          <ul>
+            <li>Killing of unpopular colors</li>
+            <li>The feature everyone wanted: Colorpickers</li>
+          </ul>
         </section>
-        <section>
-          <h3>Search Implementation</h3>
-          <div class="fragment" style="color: burlywood;">
-            <h5>Current</h5>
-            <p>All substrings are included, module codes' ranking come after descriptions</p>
-          </div>
-          <div class="fragment" style="color: aquamarine;">
-            <h5>V3</h5>
-            <p>Smarter rankings, less typing!</p>
-          </div>
-        </section>
+
         <section>
           <h3>Offline first</h3>
-          <img src="./img/liefi.png">
-          <p>Better experience for people</p>
-          <p>Especially important for mobile devices</p>
+          <ul>
+            <li>Better usage experience</li>
+            <li>Especially important for mobile devices</li>
+          </ul>
         </section>
+
         <section>
           <h2>How?</h2>
-          <div class="fragment">
-            <h5>Service Workers</h5>
-            <p>No access to DOM but can intercept requests</p>
-            <p>Does much much more, but...</p>
-          </div>
+          <ul>
+            <li>Progressive Web App</li>
+            <li>Service workers</li>
+            <li>localStorage</li>
+          </ul>
         </section>
-        <section>
-          <h4>Poorly supported in Safari</h4>
-          <iframe class="stretch" style="background: white" src="https://jakearchibald.github.io/isserviceworkerready/"></iframe>
-        </section>
+
         <section>
           <h3>Flexible start/end timings</h3>
-          <p class="fragment">We realised lessons that start at 6am exists</p>
-          <p class="fragment">So did lessons that ended at midnight</p>
-          <p class="fragment">So which hours do we present?</p>
+          <ul>
+            <li>We realised lessons that start at 6am exists</li>
+            <li>So did lessons that ended at midnight</li>
+            <li>So which hours do we present?</li>
+          </ul>
         </section>
+
         <section>
           <h4>Analysis!</h4>
-          <p class="fragment">Plot out all lessons' start and end time for this semester</p>
-          <p class="fragment">~90% of lessons lie between 10am and 7pm</p>
+          <ul>
+            <li>Plot out all lessons' start and end time for the semester</li>
+            <li>~90% of lessons lie between 10am and 7pm</li>
+          </ul>
         </section>
+
         <section>
           <h4>Graphs</h4>
           <img src="./img/end-time-lessons.png">
         </section>
+
         <section>
           <h4>More Graphs!</h4>
           <img src="./img/start-time-lessons.png">
         </section>
+
         <section>
-          <img src="./img/nus-bus.jpg">
-          <p>Perhaps this is why the buses are so packed?</p>
-        </section>
-        <section>
-          <h3>Horizontal / Vertical Mode</h3>
-          <div style="text-align: left;">
-            <p>Problem arised when: </p>
-            <p style="color: tomato;" class="fragment">NTU people complained about horizontal mode.</p>
-            <p style="color: dodgerblue;" class="fragment">NUS people complained about vertical mode.</p>
-          </div>
-          <p class="fragment" style="float: right;">Solution: Toggle-able orientations</p>
+          <h3>Orientation</h3>
+          <ul>
+            <li>Landscape works better on wide screens</li>
+            <li>Portrait works better on narrow screens</li>
+            <li>Solution: Toggleable orientation</li>
+          </ul>
         </section>
 
         <section>
           <h2>Timetable Implementation</h2>
           <p>A tale of tables, boxes and blocks</p>
         </section>
+
         <section>
           <h3>Code for a simple timetable</h3>
           <img src="./img/stack-of-books.jpg">
         </section>
+
         <section>
-          <h3>First Attempt</h3>
-          <h4>Tables</h4>
-          <p>Too difficult to work with. Tables are not responsive.</p>
+          <h3>Attempt 1 - Tables</h3>
+          <p>Too difficult to work with. Tables are not responsive</p>
+          <p>Would require two sets of markup and styles</p>
         </section>
+
         <section>
-          <h3>Second Attempt</h3>
-          <h4>Flexbox</h4>
-          <p><i>Flexible</i>, but difficult to master.</p>
-          <p>Also, many cross browser bugs. <small class="fragment" style="transform: rotate(30deg) translateY(1.5em);">Curse you safari !</small></p>
+          <h3>Attempt 2 - Flexbox</h3>
+          <p>Using <code>flex-direction</code></p>
+          <p>Simplest and most elegant</p>
+          <p>But too many <a href="https://github.com/philipwalton/flexbugs">cross browser bugs</a></p>
         </section>
+
         <section>
-          <p style="font-size: 1.5em">You see where this is going</p>
-          <div class="fragment">
-            <img style="max-height: 70vh;" src="./img/excel-timetable.png">
-            <p>If only...</p>
-          </div>
+          <h3>Attempt 3 - Hybrid</h3>
+          <p><code>inline-block</code> with dynamic percentage-based<br><code>height</code> and <code>width</code></p>
+          <p>A mix of JavaScript and CSS</p>
+          <p>One set of markup, two set of styles</p>
+          <p>Good browser support, guaranteed to work</p>
         </section>
-        <section>
-          <h3>Third to Eighth Attempt</h3>
-          <p>Different variations / rewrites</p>
-          <ul>
-            <li>Momomods</li>
-            <li>Mods+</li>
-            <li>V3 rewrite</li>
-            <li>V3 rewrite 2</li>
-          </ul>
-        </section>
-        <section>
-          <h3>Latest Attempt</h3>
-          <h4>Inline-block</h4>
-          <p>Finally getting close</p>
-          <p>Good browser support but has to depend on javascript for flexibility</p>
-        </section>
+
         <section>
           <h3>Future Attempts</h3>
           <p>CSS Grids: the future?</p>
         </section>
+
         <section>
           <h1>V3.0 Demo</h1>
           <p><a href="http://v3.nusmods.com">http://v3.nusmods.com</a></p>
@@ -626,10 +437,10 @@ type Lesson = {
         <section>
           <h3>Group Lessons by Days</h3>
           <pre><code data-trim>
-// from
+// Flat array
 [LessonA, LessonB, LessonC, LessonD, ...];
 
-// into
+// Grouped by day
 {
     Monday: [LessonA, LessonB, LessonC],
     Tuesday: [LessonD, ...]
@@ -640,13 +451,13 @@ type Lesson = {
         <section>
           <h3>Arrange Lesson within each Day</h3>
           <pre><code data-trim>
-// from
+// Grouped by day
 {
     Monday: [LessonA, LessonB, LessonC],
     Tuesday: [LessonD, ...]
 };
 
-// into
+// Resolve collisions within day
 {
     Monday: [
         [LessonA, LessonB],
@@ -658,11 +469,11 @@ type Lesson = {
     ...
 };
           </code></pre>
-          <p>Generic useful timetable representation</p>
+          <p>Generic useful timetable model representation. Potentially reuse in a React Native app?</p>
           <p>Detailed explanation found <a href="https://gist.github.com/yangshun/ee7f1a4fee5b221a93ffb8a1b9f3de47">here</a></p>
         </section>
 
-        <section>
+    <!--     <section>
           <h2>NUSModerator.js Library</h2>
           <p><a href="https://github.com/nusmodifications/nusmoderator">https://github.com/nusmodifications/nusmoderator</a></p>
           <p><em>Utlity toolbelt for nus applications</em></p>
@@ -672,51 +483,13 @@ type Lesson = {
             <li>TBD: Matric number letter calculation</li>
             <li>TBD: Wrapper for NUSMods API</li>
           </ul>
-        </section>
+        </section> -->
 
-        <section>
-          <h2>The Future</h2>
-          <ul>
-            <li>Dominate timetabling for Singapore universities</li>
-            <li>React Native app making use of NUSModerator.js library</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Advice for new blood</h2>
-          <p>JavaScript fatigue is real and it's here to stay.</p>
-          <p>Learn to embrace it.</p>
-        </section>
-
-        <section>
-          <img src="./img/js-fatigue.png"/>
-          <a href="https://twitter.com/thomasfuchs/status/708675139253174273">https://twitter.com/thomasfuchs/status/708675139253174273</a>
-        </section>
-
-        <section>
-          <h2>Back to basics</h2>
-          <ul>
-            <li>Write ES5, not ES6/ES2015.</li>
-            <li>jQuery + CSS, then MVC frameworks and Sass.</li>
-            <li>Start development without frameworks/libraries.</li>
-            <li>Don't learn frameworks, learn principles.</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>Wise Words</h2>
-          <ul>
-            <li><a href="https://medium.com/shopify-ux/how-to-learn-web-frameworks-9d447cb71e68#.upfusckp8">"It’s unrealistic for you to expect yourself to learn a framework that solves a problem you’ve never experienced."</a> - Tessa Thornton</li>
-            <li><a href="https://medium.com/@addyosmani/totally-get-your-frustration-ea11adf237e3#.w4o2gzyia">"I encourage folks to adopt this approach to keeping up with the JavaScript ecosystem: first do it, then do it right, then do it better."</a> - Addy Osmani</li>
-          </ul>
-        </section>
-
-        <section>
+       <!--  <section>
           <h2>Open Source</h2>
-          <p><a href="https://github.com/nusmodifications/react-redux-starter">React Redux Starter</a></p>
-          <p><a href="https://github.com/nusmodifications/npm-starter">NPM ES6 Starter</a></p>
-          <p>Soon: ES7 GraphQL Backend Starter</p>
-        </section>
+          <p><a href="https://github.com/nusmodifications/react-redux-starter">React Redux Starter</a> - Cutting edge web app boilerplate. Non-abstracted version of Create React App.</p>
+          <p><a href="https://github.com/nusmodifications/npm-starter">NPM ES6 Starter</a> - Boilerplate for writing libraries to be published via NPM.</p>
+        </section> -->
 
         <section>
           <h2>Acknowledgements</h2>
@@ -724,43 +497,42 @@ type Lesson = {
           <a href="https://nusmods.com/team">https://nusmods.com/team</a>
         </section>
 
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						By <a href="https://github.com/nusmodifications">NUSModifications</a> <br>
-					</p>
-				</section>
+        <section style="text-align: left;">
+          <h1>The End</h1>
+          <p>
+            By <a href="https://github.com/nusmodifications">NUSModifications</a> <br>
+          </p>
+        </section>
 
-			</div>
+      </div>
+    </div>
 
-		</div>
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
 
-		<script src="lib/js/head.min.js"></script>
-		<script src="js/reveal.js"></script>
+    <script>
 
-		<script>
+      // More info https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
 
-			// More info https://github.com/hakimel/reveal.js#configuration
-			Reveal.initialize({
-				controls: true,
-				progress: true,
-				history: true,
-				center: true,
+        transition: 'slide', // none/fade/slide/convex/concave/zoom
 
-				transition: 'slide', // none/fade/slide/convex/concave/zoom
+        // More info https://github.com/hakimel/reveal.js#dependencies
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true }
+        ]
+      });
 
-				// More info https://github.com/hakimel/reveal.js#dependencies
-				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
-				]
-			});
+    </script>
 
-		</script>
-
-	</body>
+  </body>
 </html>
